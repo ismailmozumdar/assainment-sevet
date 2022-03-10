@@ -17,7 +17,6 @@ const isLiked = (id) => {
 
 const addToLiked = (id) => {
     likedPostsId.push(id);
-  console.log(likedPostsId)
     showPosts(posts);
 };
 
@@ -37,7 +36,8 @@ const switchTab = (id) => {
         document.getElementById( "posts" ).style.display = "grid";
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
-    } else if (id === "liked") {
+    }
+     else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
@@ -54,7 +54,6 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
     const image = post.image;
-    console.log(post)
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
@@ -123,9 +122,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments[0]?.user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments[0]?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -155,7 +154,8 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    reportedPosts.innerHTML = "";
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
