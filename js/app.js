@@ -172,3 +172,12 @@ const loadPosts = async () =>{
 }
 
 loadPosts();
+const qustion = () =>{
+  const qustionContainer = document.getElementById('qus');
+  qustionContainer.innerHTML = "";
+  const div = document.createElement('div');
+  div.innerHTML = `<h1 class="text-center m-3">জাভাস্ক্রিপ্ট কিভাবে কাজ করে?</h1>
+  <p>জাভাস্ক্রিপ্ট একটি প্রোগ্রামিং ভাষা। যা ব্রাউজারে পড়তে পারে। জাভাস্ক্রিপ্ট কাজ করে নিজস্ব জাভাস্ক্রিপ্ট ইঞ্জিন দিয়ে যার নাম V8। V8 হল গুগোল-এর ওপেন সোর্স হাই-পারফরম্যান্স জাভাস্ক্রিপ্ট। এটি অন্যদের মধ্যে Node.js-এ ব্যবহৃত হয়</p>
+  `
+  qustionContainer.appendChild(div)
+}
